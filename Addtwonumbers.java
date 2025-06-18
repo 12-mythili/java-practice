@@ -8,5 +8,6 @@ class Addtwonumbers{
         num2=scan.nextInt();
         sum=num1+num2;
         System.out.print(sum);
+        scan.close();
     }
 }
