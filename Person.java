@@ -1,31 +1,37 @@
-class Person
-{
-    String firstName;
-    String lastName;
-    int pincode;
-public Person(String firstName,String lastName,int pincode)
-{
-    this.firstName=firstName;
-    this.lastName=lastName;
-    this.pincode =pincode;
-}
-public boolean equals(Object person)
-{
-if(person instanceof Person)
-{
-    Person p=(Person) person;
-    return this.pincode==p.pincode;
-}
-else
-{
-    return false;
-}
-}
+import java.util.*;
 
-public static void main(String[] args)
-{
-    Person p1=new Person("mythili","manoharan",1234);
-    Person p2=new Person("mythili","manoharan",1235);
-    System.out.println(p1.equals(p2));
-}
+class Person {
+    String name;
+    String department;
+    int age;
+
+    public Person(String name, String department, int age) {
+        this.name = name;
+        this.department = department;
+        this.age = age;
+    }
+
+    public static void main(String[] args) {
+
+        Map<String, List<Person>> map = new HashMap<>();
+
+        Person m1 = new Person("Mythili", "IT", 19);
+        Person m2 = new Person("Mithra", "IT", 20);
+        Person m3 = new Person("Vishnu", "ECE", 21);
+
+        List<Person> personList = new ArrayList<>();
+        personList.add(m1);
+        personList.add(m2);
+        personList.add(m3);
+
+        map.put("Student", personList);
+
+        List<Person> list = map.get("Student");
+        for (Person p : list) {
+            System.out.println("Name: " + p.name);
+            System.out.println("Department: " + p.department);
+            System.out.println("Age: " + p.age);
+            System.out.println();
+        }
+    }
 }
